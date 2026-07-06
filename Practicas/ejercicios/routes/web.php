@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 Route::inertia('/', 'welcome')->name('home');
 
@@ -22,3 +23,5 @@ Route::get('admin/posts/example', function () {
     $url = route("admin.home"); //se usa el alias para no escribir toda la ruta
     return "Esta es la url actual: " . $url;
 })->name('admin.home');
+//registro de ruta controlador
+Route::resource('user', UserController::class);
