@@ -14,6 +14,11 @@ Route::get('/hello', function () {
     return 'Hola, ¿como estas?';
 });
 
-Route::get('/edad/{id}', function($id) {
-    return "Tengo " . $id . " años";
+Route::get('/edad/{id}/{nombre}', function ($id, $nombre) {
+    return "Tengo " . $id . " años y me llamo " . $nombre;
 });
+
+Route::get('admin/posts/example', function () {
+    $url = route("admin.home"); //se usa el alias para no escribir toda la ruta
+    return "Esta es la url actual: " . $url;
+})->name('admin.home');
