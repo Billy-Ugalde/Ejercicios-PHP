@@ -24,4 +24,4 @@ Route::get('admin/posts/example', function () {
     return "Esta es la url actual: " . $url;
 })->name('admin.home');
 //registro de ruta controlador
-Route::resource('user', UserController::class);
+Route::resource('user/{id}', UserController::class);

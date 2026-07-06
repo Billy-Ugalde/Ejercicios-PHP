@@ -9,9 +9,9 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
-        return "Hola estamos en la raíz";
+        return "Hola usuario número ". $id . ", estamos en la raíz";
     }
 
     /**
