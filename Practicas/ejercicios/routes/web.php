@@ -26,4 +26,4 @@ Route::get('admin/posts/example', function () {
 //registro de ruta controlador
 Route::resource('user', UserController::class);
 Route::get('contact', [UserController::class, 'contact']);
-Route::get('show/{id}/{name}/{password}', [UserController::class, 'show_post']);
+Route::get('post/{id}/{name}/{password}', [UserController::class, 'show_post']);
