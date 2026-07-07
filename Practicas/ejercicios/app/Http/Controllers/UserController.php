@@ -11,7 +11,7 @@ class UserController extends Controller
      */
     public function index($id)
     {
-        return "Hola usuario número ". $id . ", estamos en la raíz";
+        return "Hola usuario número " . $id . ", estamos en la raíz";
     }
 
     /**
@@ -63,13 +63,16 @@ class UserController extends Controller
     }
 
 
-    public function contact(){
+    public function contact()
+    {
 
-        return view('contact');
+        $people = ['Edwin', 'Jose', 'James', 'Peter', 'Maria'];
+
+        return view('contact', compact('people'));
     }
-    public function show_post($id, $name, $password){
+    public function show_post($id, $name, $password)
+    {
 
         return view('post', compact('id', 'name', 'password'));
     }
 }
-

@@ -2,10 +2,18 @@
 
 @section('content')
     <h1>Contact Page</h1>
+    @if (count($people))
+        <ul>
+            @foreach ($people as $person)
+                <li>{{ $person }}</li>
+            @endforeach
+        </ul>
+    @endif
+
 @endsection
 
-
 @section('footer')
-<script>alert('Hola amigo')  </script>
-
+    {{-- <script>
+        alert('Hola amigo')
+    </script> --}}
 @endsection
