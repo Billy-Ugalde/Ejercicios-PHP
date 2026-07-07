@@ -12,10 +12,10 @@
 
         @viteReactRefresh
         <x-inertia::head>
-            <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
         </x-inertia::head>
     </head>
     <body class="container">
-    <h1>Post {{$id}}</h1>
+    <h1>Post {{$id}} {{$name}} {{$password}}</h1>
     </body>
 </html>
