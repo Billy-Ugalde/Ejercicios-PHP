@@ -29,9 +29,19 @@ use Illuminate\Support\Facades\DB;
 // Route::get('contact', [UserController::class, 'contact']);
 // Route::get('post/{id}/{name}/{password}', [UserController::class, 'show_post']);
 
-Route::get('/insert', function () {
+// Route::get('/insert', function () {
 
-    DB::insert('insert into posts(title, content, name) values(?, ?,?)', ['PHP con Laravel', 'Laravel', 'James']);
+//     DB::insert('insert into posts(title, content, name) values(?, ?,?)', ['PHP con Laravel', 'Laravel', 'James']);
 
-    return view('insert');
+//     return view('insert');
+// });
+
+Route::get('/read', function () {
+    $results = DB::select('select * from posts where id = ?', [1]);
+
+
+    // return $results;
+    foreach ($results as $posts) {
+        return $posts->title;
+    }
 });
