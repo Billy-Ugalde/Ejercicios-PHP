@@ -36,12 +36,24 @@ use Illuminate\Support\Facades\DB;
 //     return view('insert');
 // });
 
-Route::get('/read', function () {
-    $results = DB::select('select * from posts where id = ?', [1]);
+// Route::get('/read', function () {
+//     $results = DB::select('select * from posts where id = ?', [1]);
 
 
-    // return $results;
-    foreach ($results as $posts) {
-        return $posts->title;
-    }
+//     // return $results;
+//     foreach ($results as $posts) {
+//         return $posts->title;
+//     }
+// });
+
+// Route::get('/update', function () {
+//     $updated = DB::update('update posts set name = ? where id = ?', ['Actualización del nombre', 1]);
+
+//     return $updated;
+// });
+
+Route::get('/delete', function () {
+    $deleted = DB::delete('delete from posts where id = ?', [5]);
+
+    return $deleted;
 });
