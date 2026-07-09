@@ -79,9 +79,14 @@ use App\Models\Post;
 // });
 
 // Buscar un registro por id con Eloquent (Post::find)
-Route::get('/find', function () {
+// Route::get('/find', function () {
 
-    $post = Post::find(11);
+//     $post = Post::find(11);
 
-    return $post->title;
+//     return $post->title;
+// });
+
+Route::get('/findmore', function () {
+    $posts = Post::where('id', '>', 10)->firstOrFail();
+    return $posts;
 });
