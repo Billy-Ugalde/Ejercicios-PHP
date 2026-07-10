@@ -85,8 +85,30 @@ use App\Models\Post;
 
 //     return $post->title;
 // });
+//Buscar un registro por una condición where
 
-Route::get('/findmore', function () {
-    $posts = Post::where('id', '>', 10)->firstOrFail();
-    return $posts;
+// Route::get('/findmore', function () {
+//     $posts = Post::where('id', '>', 10)->firstOrFail();
+//     return $posts;
+// });
+
+// //inserción en el modelo post
+// Route::get('/insert', function () {
+
+//     $post = new Post;
+//     $post->name = 'Nuevo nombre';
+//     $post->title = 'Nuevo Título';
+//     $post->content = 'Nuevo contenidoi¿';
+
+//     $post->save();
+// });
+
+Route::get('/update', function () {
+
+    $post = Post::find(2);
+    $post->name = 'Nombre actualizado';
+    $post->title = 'Título actualizado';
+    $post->content = 'Contenidoi actualizado';
+
+    $post->save();
 });
