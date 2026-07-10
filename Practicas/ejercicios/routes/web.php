@@ -103,12 +103,17 @@ use App\Models\Post;
 //     $post->save();
 // });
 
-Route::get('/update', function () {
+// //Actualización 
+// Route::get('/update', function () {
 
-    $post = Post::find(2);
-    $post->name = 'Nombre actualizado';
-    $post->title = 'Título actualizado';
-    $post->content = 'Contenidoi actualizado';
+//     $post = Post::find(2);
+//     $post->name = 'Nombre actualizado';
+//     $post->title = 'Título actualizado';
+//     $post->content = 'Contenidoi actualizado';
 
-    $post->save();
+//     $post->save();
+// });
+Route::get('/create', function () {
+
+    Post::create(['title' => 'Creación del título', 'content' => 'Estoy\' aprendiendo', 'name' => 'Billy']);
 });

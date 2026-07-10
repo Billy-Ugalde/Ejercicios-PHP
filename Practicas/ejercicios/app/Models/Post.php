@@ -8,4 +8,6 @@ class Post extends Model
 {
     //    protected $table = 'posts';
     //    protected $primaryKey = 'post_id';
+
+    protected $fillable = ['title', 'content', 'name'];
 }
