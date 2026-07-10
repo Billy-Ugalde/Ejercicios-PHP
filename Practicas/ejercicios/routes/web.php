@@ -113,7 +113,11 @@ use App\Models\Post;
 
 //     $post->save();
 // });
-Route::get('/create', function () {
+// Route::get('/create', function () {
 
-    Post::create(['title' => 'Creación del título', 'content' => 'Estoy\' aprendiendo', 'name' => 'Billy']);
+//     Post::create(['title' => 'Creación del título', 'content' => 'Estoy\' aprendiendo', 'name' => 'Billy']);
+// });
+Route::get('/update', function () {
+
+    Post::where('id', 2)->where('is_admin', 0)->update(['title' => 'Nuevo titulo php', 'content' => 'Php es bonito']);
 });
