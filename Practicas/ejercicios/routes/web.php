@@ -131,10 +131,14 @@ use App\Models\Post;
 //
 // });
 //Delete
-Route::get('/delete2', function () {
+// Route::get('/delete2', function () {
 
-    Post::destroy([10, 11]);
+//     Post::destroy([10, 11]);
 
-    // Post::where('is_admin', 0)->delete();
+//     // Post::where('is_admin', 0)->delete();
 
+// });
+Route::get('/softdelete', function () {
+
+    Post::find(2)->delete();
 });
