@@ -117,7 +117,24 @@ use App\Models\Post;
 
 //     Post::create(['title' => 'Creación del título', 'content' => 'Estoy\' aprendiendo', 'name' => 'Billy']);
 // });
-Route::get('/update', function () {
+// Route::get('/update', function () {
 
-    Post::where('id', 2)->where('is_admin', 0)->update(['title' => 'Nuevo titulo php', 'content' => 'Php es bonito']);
+//     Post::where('id', 2)->where('is_admin', 0)->update(['title' => 'Nuevo titulo php', 'content' => 'Php es bonito']);
+// });
+//Delete por id
+
+// Route::get('/delete', function(){
+//
+//     $post = Post::find(2);
+//
+//     $post->delete();
+//
+// });
+//Delete
+Route::get('/delete2', function () {
+
+    Post::destroy([10, 11]);
+
+    // Post::where('is_admin', 0)->delete();
+
 });
