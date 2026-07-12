@@ -142,8 +142,12 @@ use App\Models\Post;
 
 //     Post::find(2)->delete();
 // });
-Route::get('/readsoftdelete', function () {
-    $post = Post::onlyTrashed()->where('is_admin', 0)->get();
+// Route::get('/readsoftdelete', function () {
+//     $post = Post::onlyTrashed()->where('is_admin', 0)->get();
 
-    return $post;
+//     return $post;
+// });
+Route::get('/restore', function () {
+
+    Post::withTrashed()->where('is_admin', 0)->restore();
 });
