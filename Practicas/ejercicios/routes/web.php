@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
+use App\Models\User;
 //use App\Http\Controllers\UserController;
 
 // Route::inertia('/', 'welcome')->name('home');
@@ -147,7 +148,17 @@ use App\Models\Post;
 
 //     return $post;
 // });
-Route::get('/restore', function () {
+// Route::get('/restore', function () {
 
-    Post::withTrashed()->where('is_admin', 0)->restore();
+//     Post::withTrashed()->where('is_admin', 0)->restore();
+// });
+// Route::get('/forcedelete', function () {
+
+//     Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
+// });
+
+// One to One relationship
+Route::get('/author/{id}/post', function ($id) {
+
+    return User::find($id)->post->title;
 });
