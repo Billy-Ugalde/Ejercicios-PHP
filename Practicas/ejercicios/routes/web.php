@@ -169,12 +169,20 @@ use App\Models\User;
 // });
 
 // One to Many relationship
-Route::get('/posts', function () {
+// Route::get('/posts', function () {
 
-    $user = User::find(2);
+//     $user = User::find(2);
 
-    foreach ($user->posts as $post) {
+//     foreach ($user->posts as $post) {
 
-        echo $post->title . "<br>";
-    }
+//         echo $post->title . "<br>";
+//     }
+// });
+
+// Many to Many relationship
+Route::get('/user/{id}/role', function ($id) {
+
+    $user = User::find($id)->roles()->orderBy('id', 'desc')->get();
+
+    return $user;
 });
