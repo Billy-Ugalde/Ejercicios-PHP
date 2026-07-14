@@ -43,6 +43,6 @@ class User extends Authenticatable
 
     public function post()
     {
-        return $this->hasOne(Post::class);
+        return $this->hasOne('App/Post');
     }
 }

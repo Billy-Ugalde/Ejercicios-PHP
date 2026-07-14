@@ -13,4 +13,9 @@ class Post extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable = ['title', 'content', 'name'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

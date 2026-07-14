@@ -157,8 +157,13 @@ use App\Models\User;
 //     Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
 // });
 
-// One to One relationship
-Route::get('/author/{id}/post', function ($id) {
+// // One to One relationship
+// Route::get('/author/{id}/post', function ($id) {
 
-    return User::find($id)->post->title;
+//     return User::find($id)->post->title;
+// });
+
+Route::get('/post/{id}/user', function ($id) {
+
+    return Post::find($id)->user->name;
 });
