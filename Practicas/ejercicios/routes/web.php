@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Country;
 //use App\Http\Controllers\UserController;
 
 // Route::inertia('/', 'welcome')->name('home');
@@ -180,9 +181,29 @@ use App\Models\User;
 // });
 
 // Many to Many relationship
-Route::get('/user/{id}/role', function ($id) {
+// Route::get('/user/{id}/role', function ($id) {
 
-    $user = User::find($id)->roles()->orderBy('id', 'desc')->get();
+//     $user = User::find($id)->roles()->orderBy('id', 'desc')->get();
 
-    return $user;
+//     return $user;
+// });
+
+// Route::get('user/pivot', function () {
+
+//     $user = User::find(1);
+
+//     foreach ($user->roles as $role) {
+
+//         return $role->pivot->created_at;
+//     }
+// });
+
+Route::get('/user/country', function () {
+
+    $country = Country::find(2);
+
+    foreach ($country->posts as $post) {
+
+        return $post->title;
+    }
 });
