@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Country;
 use App\Models\Photo;
+use App\Models\Tag;
 //use App\Http\Controllers\UserController;
 
 // Route::inertia('/', 'welcome')->name('home');
@@ -242,12 +243,22 @@ use App\Models\Photo;
 //     return $photo->imageable;
 // });
 
-Route::get('/post/tag', function () {
+// Route::get('/post/tag', function () {
 
-    $post = Post::find(1);
+//     $post = Post::find(1);
 
-    foreach ($post->tags as $tag) {
+//     foreach ($post->tags as $tag) {
 
-        echo $tag->name;
+//         echo $tag->name;
+//     }
+// });
+
+Route::get('/tag/post', function () {
+
+    $tag = Tag::find(2);
+
+    foreach ($tag->posts as $post) {
+
+        return $post->title;
     }
 });
