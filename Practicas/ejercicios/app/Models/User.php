@@ -55,4 +55,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class)->withPivot('created_at');
     }
+
+    public function photos()
+    {
+        return $this->morphMany(Photo::class, 'imageable');
+    }
 }

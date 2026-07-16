@@ -198,12 +198,33 @@ use App\Models\Country;
 //     }
 // });
 
-Route::get('/user/country', function () {
+// Route::get('/user/country', function () {
 
-    $country = Country::find(2);
+//     $country = Country::find(2);
 
-    foreach ($country->posts as $post) {
+//     foreach ($country->posts as $post) {
 
-        return $post->title;
+//         return $post->title;
+//     }
+// });
+
+// Polymorphic relationship
+Route::get('user/photos', function () {
+
+    $user = User::find(1);
+
+    foreach ($user->photos as $photo) {
+
+        echo $photo->path . "<br>";
+    }
+});
+
+Route::get('post/{id}/photos', function ($id) {
+
+    $post = Post::find($id);
+
+    foreach ($post->photos as $photo) {
+
+        echo $photo->path . "<br>";
     }
 });
