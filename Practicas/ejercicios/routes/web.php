@@ -154,6 +154,11 @@ use App\Models\Photo;
 
 //     Post::withTrashed()->where('is_admin', 0)->restore();
 // });
+
+// Route::get('/restore-post-1', function () {
+
+//     Post::withTrashed()->where('id', 1)->restore();
+// });
 // Route::get('/forcedelete', function () {
 
 //     Post::onlyTrashed()->where('is_admin', 0)->forceDelete();
@@ -230,9 +235,19 @@ use App\Models\Photo;
 //     }
 // });
 
-Route::get('photo/{id}/post', function ($id) {
+// Route::get('photo/{id}/post', function ($id) {
 
-    $photo = Photo::findOrFail($id);
+//     $photo = Photo::findOrFail($id);
 
-    return $photo->imageable;
+//     return $photo->imageable;
+// });
+
+Route::get('/post/tag', function () {
+
+    $post = Post::find(1);
+
+    foreach ($post->tags as $tag) {
+
+        echo $tag->name;
+    }
 });
