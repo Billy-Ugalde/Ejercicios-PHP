@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Country;
+use App\Models\Photo;
 //use App\Http\Controllers\UserController;
 
 // Route::inertia('/', 'welcome')->name('home');
@@ -208,23 +209,30 @@ use App\Models\Country;
 //     }
 // });
 
-// Polymorphic relationship
-Route::get('user/photos', function () {
+// // Polymorphic relationship
+// Route::get('user/photos', function () {
 
-    $user = User::find(1);
+//     $user = User::find(1);
 
-    foreach ($user->photos as $photo) {
+//     foreach ($user->photos as $photo) {
 
-        echo $photo->path . "<br>";
-    }
-});
+//         echo $photo->path . "<br>";
+//     }
+// });
 
-Route::get('post/{id}/photos', function ($id) {
+// Route::get('post/{id}/photos', function ($id) {
 
-    $post = Post::find($id);
+//     $post = Post::find($id);
 
-    foreach ($post->photos as $photo) {
+//     foreach ($post->photos as $photo) {
 
-        echo $photo->path . "<br>";
-    }
+//         echo $photo->path . "<br>";
+//     }
+// });
+
+Route::get('photo/{id}/post', function ($id) {
+
+    $photo = Photo::findOrFail($id);
+
+    return $photo->imageable;
 });
