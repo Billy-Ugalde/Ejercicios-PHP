@@ -19,3 +19,15 @@ Route::get('/read', function () {
         echo $post->title . "<br>";
     }
 });
+
+Route::get('/update', function () {
+    $user = User::find(1);
+
+    $user->posts()->where('id', '=', 2)->update(['title' => 'Amo Laravelll 3', 'body' => 'Esto es increíble, gracias fabian 2']);
+});
+
+Route::get('/delete', function () {
+    $user = User::find(2);
+
+    $user->posts()->whereId(2)->delete();
+});
