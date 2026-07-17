@@ -12,7 +12,7 @@ class Post extends Model
     //    protected $primaryKey = 'post_id';
     protected $dates = ['deleted_at'];
 
-    protected $fillable = ['title', 'content', 'name'];
+    protected $fillable = ['title', 'content', 'name', 'user_id'];
 
     public function user()
     {
