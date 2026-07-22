@@ -12,4 +12,9 @@ class Post extends Model
     {
         return $this->morphToMany(Tag::class, 'taggable');
     }
+
+    public function scopeInOrder($query)
+    {
+        return $query->orderBy('id', 'asc')->get();
+    }
 }
