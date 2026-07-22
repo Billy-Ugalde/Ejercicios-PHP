@@ -40,4 +40,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function getNameAttribute($value)
+    {
+        return strtoupper($value);
+    }
 }

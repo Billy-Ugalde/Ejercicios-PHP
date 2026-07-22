@@ -1,11 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <p>ID: {{ $post->id }}</p>
-    <p>Name: {{ $post->name }}</p>
-    <p>Tags:
-        @foreach ($post->tags as $tag)
-            {{ $tag->name }}
-        @endforeach
-    </p>
+
+    <h1><a href="{{ route('posts.edit', $post->id) }}">{{ $post->name }}</a></h1>
+
 @endsection

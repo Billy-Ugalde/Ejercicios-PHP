@@ -1,11 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
-    <form method="POST" action="{{ route('posts.update', $post) }}">
-        @csrf
-        @method('PUT')
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" value="{{ $post->name }}">
-        <button type="submit">Update</button>
+
+    <h1>Edit Post</h1>
+
+    <form method="post" action="/posts/{{ $post->id }}">
+
+        {{ csrf_field() }}
+
+        <input type="hidden" name="_method" value="PUT">
+
+        <input type="text" name="name" placeholder="Enter name" value="{{ $post->name }}">
+
+        <input type="submit" name="submit" value="UPDATE">
+
+    </form>
+
+    <form method="post" action="/posts/{{ $post->id }}">
+
+        {{ csrf_field() }}
+
+        <input type="hidden" name="_method" value="DELETE">
+
+        <input type="submit" value="DELETE">
+
     </form>
 @endsection

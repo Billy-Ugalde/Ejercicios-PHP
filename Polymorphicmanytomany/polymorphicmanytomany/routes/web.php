@@ -3,7 +3,9 @@
 use App\Http\Controllers\PostsController;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\User;
 use App\Models\Video;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
 Route::inertia('/', 'welcome')->name('home');
@@ -27,3 +29,30 @@ Route::resource('/posts', PostsController::class);
 //         $tag->whereId(1)->delete();
 //     }
 // });
+
+Route::get('/dates', function () {
+
+    $date = new DateTime('+1 week');
+
+    echo $date->format('m-d-Y');
+
+    echo '<br>';
+
+    echo Carbon::now()->addDays(10)->diffForHumans();
+
+    echo '<br>';
+
+    echo Carbon::now()->subMonths(5)->diffForHumans();
+
+    echo '<br>';
+
+    echo Carbon::now()->yesterday();
+
+    echo '<br>';
+});
+
+Route::get('/getname', function () {
+    $user = User::find(1);
+
+    echo $user->name;
+});
