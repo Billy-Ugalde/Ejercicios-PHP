@@ -6,6 +6,7 @@ use App\Models\Tag;
 use App\Models\User;
 use App\Models\Video;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::inertia('/', 'welcome')->name('home');
@@ -62,4 +63,14 @@ Route::get('/setname', function () {
 
     $user->name = "william";
     $user->save();
+});
+
+Route::get('/upload', function () {
+    return view('upload');
+});
+
+Route::post('/uploadfile', function (Request $request) {
+    $request->file('fileToUpload')->move(public_path('uploads'), $request->file('fileToUpload')->getClientOriginalName());
+
+    return back();
 });
