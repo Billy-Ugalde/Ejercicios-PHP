@@ -49,4 +49,18 @@ class User extends Authenticatable implements PasskeyUser
             /* @end-chisel-2fa */
         ];
     }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function isAdmin()
+    {
+        if ($this->role && $this->role->name == 'admin') {
+            return true;
+        }
+
+        return false;
+    }
 }
