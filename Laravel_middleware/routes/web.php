@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::inertia('/', 'welcome')->name('home');
@@ -9,16 +10,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::inertia('dashboard', 'dashboard')->name('dashboard');
 });
 
-Route::get('/test-admin', function () {
-    $user = Auth::user();
+Route::get('/admin', [AdminController::class, 'index']);
 
-    if ($user->isAdmin()) {
-        echo 'this is user is a administrator';
-    }
-});
+Route::get('/home-test', [HomeController::class, 'index']);
 
 Route::get('/admin/user/roles', function () {
     return 'Middleware role';
-})->middleware(['role', 'auth', 'web']);
+})->middleware(['web']);
 
 require __DIR__.'/settings.php';
